@@ -1,0 +1,15 @@
+.selectControl {
+    width: 30%;
+    margin-bottom: 30px;
+}
+
+.row {
+    align-items: center;
+    padding-left: 20%;
+}
+
+@media( max-width: 770px) {
+    .selectControl {
+        margin: 2% 0 !important;
+    }
+}

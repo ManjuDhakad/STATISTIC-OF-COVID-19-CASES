@@ -1,0 +1,54 @@
+.container {
+    margin: 50px 30px 20px 30px;
+    justify-content: center;
+}
+
+.row {
+    padding: 0 15%;
+}
+
+.count_up1 {
+    font-size: large;
+    font-weight: bold;
+    color: rgba(234, 248, 33, 0.897);
+}
+
+.count_up2 {
+    font-size: large;
+    font-weight: bold;
+    color: rgba(20, 241, 20, 0.959);
+}
+
+.count_up3 {
+    font-size: large;
+    font-weight: bold;
+    color: rgba(247, 12, 12, 0.959);
+}
+
+.infected {
+    margin-bottom: 20px;
+    border-bottom: 10px solid rgba(220, 231, 68, 0.5);
+}
+
+.recovered {
+    margin-bottom: 20px;
+    border-bottom: 10px solid rgba(15, 197, 15, 0.5);
+}
+
+.deaths {
+    margin-bottom: 20px;
+    border-bottom: 10px solid rgba(226, 10, 10, 0.5);
+}
+
+.Number_animation {
+    color: blue;
+}
+
+
+/* 
+
+@media( max-width: 770px) {
+    .card {
+        margin: 2% 0 !important;
+    }
+} */
