@@ -1,20 +1,48 @@
     body {
-        background-color: #ffffff;
-        background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
-        /* background-color: #d8dede;
-        background-image: linear-gradient(315deg, #d8dede 0%, #e5bdf6 74%); */
+        /* background-color: #ffffff; */
+        /* background-image: url('./images/image2.jpg'); */
+        /* background-image: linear-gradient(315deg, #ffffff 0%, #85a7ca 74%);
+        background-color: #d8dede; */
+        /* background-image: linear-gradient(315deg, #d8dede 0%, #e5bdf6 74%); */ 
         /* background-color: #f3e6e8;
         background-image: linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%); */
-        /* background-color: #e9bcb7;
-        background-image: linear-gradient(315deg, #e9bcb7 0%, #29524a 74%); */
+        background-color: #e9bcb7;
+        background-image: linear-gradient(315deg, #c29c94 0%, #29524a 74%);
         font-style: oblique;
+        /* z-index: -1; */
     }
     
     .container {
+        /* background-color: black; */
+        /* background-color: #b8c6db;
+        background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%); 
+        /* z-index: 0;  */
+        /* opacity: 0.8; */
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+    }
+    
+    .Icon_div {
+        /* background-color: gray; */
+        display: flex;
+        border-radius: 20px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        width: 100%;
+        padding-bottom: 5px;;
+    }
+    
+    .icon {
+        width: 60px;
+        height: 60px;
+        padding-right: 10px;
+        padding-top: 10px;
+        position: fixed;
+        border-radius: 10px;
+        /* z-index: 1; */
     }
     
     .image {
@@ -29,5 +57,25 @@
         }
         .image {
             width: 100%;
+        }
+    }
+    
+    @media( min-width: 770px) {
+        .container {
+            /* teke margin from top 0 and left and right 10% */
+            margin: 0 10%;
+        }
+        .image {
+            margin-right: 20%;
+        }
+    }
+    
+    @media( min-width: 1000px) {
+        .container {
+            /* teke margin from top 0 and left and right 10% */
+            margin: 0 10%;
+        }
+        .image {
+            margin-right: 35%;
         }
     }

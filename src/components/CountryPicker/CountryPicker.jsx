@@ -1,10 +1,10 @@
-import React , {useState , useEffect } from 'react';
+import React , {useState , useEffect ,useRef } from 'react';
 import {Container , Row, Col} from 'react-bootstrap';
 
 import styles from './CountryPicker.module.css';
 import { fetchCountries } from '../../api';
 
-const CountryPicker =( { handleCountryChange } ) =>{
+const CountryPicker =(props) =>{
     const [fetchedCountries , setFetchedCountries] = useState([]);
 
     useEffect(() => {
@@ -12,29 +12,32 @@ const CountryPicker =( { handleCountryChange } ) =>{
             setFetchedCountries(await fetchCountries() );
         }
         fetchAPI();
-    }, [setFetchedCountries]);
+        
+    }, [setFetchedCountries,]);
 
     // console.log(fetchedCountries);
+    // const showText = () => {setIsShow ();}
 
     return (
-        <Container className ={styles.selectControl} >
+        <Container fluid className ={styles.selectControl} >
             <Row xs = {12} className = {styles.row}>
-            {/* <Col xs ={12} sm = {6}> */}
-            <select onChange = { (e) => handleCountryChange(e.target.value)}>
+            <Col xs ={12} sm = {6}>
+            <select onChange = { (e) => props.handleCountryChange(e.target.value) }>
                 <option> Select Country</option>
                 <option value = "" > Global </option>
                 {fetchedCountries.map( (country , i) => <option key={i} value = {country}> {country}</option> )}
             </select>
-            {/* </Col> */}
-            {/* <Col xs={12} sm ={6}>
-            <select style={{fontFamily: 'oblique'}} onChange = { (e) => console.log(e.target.value)}>
-                <option > Select Chart </option>
-                <option value = "line" > Line </option>
-                <option value = "bar" > Bar </option>
-                <option value = "pie" > Pie </option>
-                <option value = "Droughnut" > Droughnut </option>
+            </Col>
+            <Col xs={12} sm ={6}>
+            <select onClick = {(e)=> props.handleGraphChange(e.target.value)}>
+                <option value = ""> Multifarious Graph </option>
+                <option value = "1" > Percentage growth </option>
+                <option value = "2" > Recovery growth </option>
+                <option value = "3" > Log graph </option>
+                <option value = "4" > Doubling rate </option>
+                
             </select>
-            </Col> */}
+            </Col>
             </Row>
         </Container>
     )

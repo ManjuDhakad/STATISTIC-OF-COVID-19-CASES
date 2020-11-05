@@ -1,0 +1,34 @@
+.loginBox {
+    width: 400px; 
+}
+
+
+.textbox {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid black;
+}
+
+.textbox input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    width: 100%;
+    float: left;
+    margin: 0 10px;
+}
+
+.btn {
+    width: 100%;
+    background: none;
+    border: 2px solid black;
+    color: black;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 12px 0;
+}

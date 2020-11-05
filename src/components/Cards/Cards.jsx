@@ -6,10 +6,36 @@ import styles from './Cards.module.css';
 import CountUp from 'react-countup';
 
 
-const Cards = ({data :{ confirmed , recovered , deaths , lastUpdate }}) =>{
+const Cards = ({ data }) =>{
+    // console.log(confirmed , recovered , deaths , lastUpdate);
     // console.log(props);
     // how to check is it data from api is fetched or not.....
     // lastUpdate contain the real formate of date time so for human 
+    let check = data.length;
+    var confirmed ;
+    var recovered;
+    var deaths;
+    var lastUpdate;
+
+    if(check > 12){
+
+      let n = data.length;
+        // console.log (data[n - 1].Confirmed);
+
+        confirmed = data[n - 1].Confirmed;
+        recovered = data[n - 1].Recovered;
+        deaths = data[n - 1].Deaths;
+        lastUpdate = data[n - 1].Date;
+
+    }
+    else{
+      confirmed = data.confirmed;
+      recovered = data.recovered;
+      deaths = data.deaths;
+      lastUpdate = data.lastUpdate;
+    }
+
+
     if(!confirmed){
         return 'Loading......';
     }
@@ -17,43 +43,58 @@ const Cards = ({data :{ confirmed , recovered , deaths , lastUpdate }}) =>{
         <Container fluid className = {styles.container}>
           <Row xs={12} className={styles.row}>
             <Col xs={12 } md= {4} >
-              <Card className ={styles.card , styles.infected}>
+              <Card className ={ styles.infected}>
                 <Card.Img variant="top" src= {require('../../images/infected2.jpg')} />
                 <Card.Body>
                   <Card.Title >Infected</Card.Title>
-                  <CountUp start = {0} end = {confirmed.value} duratin ={2.5} separator ="," className={styles.count_up1} />
+                  <CountUp start = {0} end = {confirmed} duratin ={2.5} separator ="," className={styles.count_up1} />
                   <Card.Text>Number of active cases of COVID-19 </Card.Text>
                 </Card.Body>
-                <Card.Footer>
-                  <medium className="text-muted">{new Date(lastUpdate).toDateString() }</medium>
+                <Card.Footer className = {styles.footer}>
+                  <medium className="text-muted">
+                    {new Date(lastUpdate).toLocaleDateString()}
+                  </medium>
+                  <medium className="text-muted">
+                    {new Date(lastUpdate).toLocaleTimeString()}
+                  </medium>
                 </Card.Footer>
               </Card>
             </Col>
 
             <Col xs={12} md={4}>
-              <Card className ={styles.card , styles.recovered}>
+              <Card className ={ styles.recovered}>
                 <Card.Img variant="top" src= {require('../../images/infected.jpg')} /> 
                 <Card.Body>
                   <Card.Title>Recovered</Card.Title>
-                  <CountUp start = {0} end = {recovered.value} duratin ={2.5} separator ="," className={styles.count_up2} />
+                  <CountUp start = {0} end = {recovered} duratin ={2.5} separator ="," className={styles.count_up2} />
                   <Card.Text> Number of recovred from COVID-19</Card.Text>
                 </Card.Body>
-                <Card.Footer>
-                  <medium className="text-muted">{new Date(lastUpdate).toDateString() }</medium>
+                <Card.Footer className = {styles.footer}>
+                <medium className="text-muted">
+                    {new Date(lastUpdate).toLocaleDateString()}
+                </medium>
+                <medium className="text-muted">
+                    {new Date(lastUpdate).toLocaleTimeString()}
+                </medium>
                 </Card.Footer>
               </Card>
             </Col>
 
             <Col xs={12} md={4}>
-              <Card className ={styles.card , styles.deaths}>
+              <Card className ={ styles.deaths}>
                 <Card.Img variant="top" src= {require('../../images/image4.jpg')} />
                 <Card.Body>
                   <Card.Title>Deaths</Card.Title>
-                  <CountUp start = {0} end = {deaths.value} duratin ={2.5} separator ="," className={styles.count_up3} />
-                  <Card.Text> Number of deaths by COVID-19 </Card.Text>
+                  <CountUp start = {0} end = {deaths} duratin ={2.5} separator ="," className={styles.count_up3} />
+                  <Card.Text> Number of deaths due to COVID-19 </Card.Text>
                 </Card.Body>
-                <Card.Footer>
-                  <medium className="text-muted">{new Date(lastUpdate).toDateString() }</medium>
+                <Card.Footer className = {styles.footer}>
+                  <medium className="text-muted">
+                    {new Date(lastUpdate).toLocaleDateString()}
+                  </medium>
+                  <medium className="text-muted">
+                    {new Date(lastUpdate).toLocaleTimeString()}
+                  </medium>
                 </Card.Footer>
               </Card>
             </Col>
